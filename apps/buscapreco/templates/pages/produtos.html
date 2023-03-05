@@ -1,0 +1,15 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block 'head' %}
+  <link rel="stylesheet" href="{% static 'buscapreco/css/produtos.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+  <form class="centralizar" action="{% url 'resultados' %}" method="POST">{% csrf_token %}
+    <div>
+      <h1>Pesquisar</h1>
+      <input type="text" class="form-control-lg" name="produto" placeholder="Pesquisar...">
+      <input type="submit" class="form-control-lg input-submit" value="">
+    </div>
+  </form>
+{% endblock %}

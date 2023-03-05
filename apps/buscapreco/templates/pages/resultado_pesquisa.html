@@ -1,0 +1,36 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block 'head' %}
+  <link rel="stylesheet" href="{% static 'buscapreco/css/produtos.css' %}">
+  <link rel="stylesheet" href="{% static 'buscapreco/css/pesquisa.css' %}">
+{% endblock %}
+{% block 'conteudo' %}
+{% load humanize %}
+  <form class="centralizar" action="{% url 'resultados' %}" method="POST">{% csrf_token %}
+    <div>
+      <h1>Pesquisar</h1>
+      <input type="text" class="form-control-lg" name="produto" placeholder="Pesquisar...">
+      <input type="submit" class="form-control-lg input-submit" value="">
+    </div>
+  </form>
+  <div class="container">
+    <table class="table table-light table-strip">
+      <tr>
+        <th>Produto</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Site</th>
+        <th>Data Cotação</th>
+      </tr>
+      <tr>
+      {% for dado in dados %}
+        <td><img class="redimensiona-imagem" src="{{ dado.link_imagem}}"></td>
+        <td>{{ dado.nome }}</td>
+        <td>{{ dado.preco | intcomma }}</td>
+        <td>{{ dado.site }}</td>
+        <td>{{ dado.data_cotacao | date:'d/m/Y'}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

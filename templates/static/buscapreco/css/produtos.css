@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+}
+
+.centralizar {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-submit {
+  background-image: url('https://em-content.zobj.net/thumbs/120/microsoft/319/magnifying-glass-tilted-right_1f50e.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.3em;
+  padding-left: 1.3em;
+}
